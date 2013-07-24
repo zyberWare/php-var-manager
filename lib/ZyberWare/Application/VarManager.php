@@ -36,6 +36,7 @@ class VarManager
         } else {
             $this->_vars[$varName] = $value;
         }
+        return $this;
     }
 
     public function get($varName)
