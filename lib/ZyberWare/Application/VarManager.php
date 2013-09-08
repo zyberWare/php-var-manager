@@ -8,10 +8,28 @@
  */
 namespace ZyberWare\Application;
 
+/**
+ * VarManager provides an easy way to save variables with getter- and setter-methods.
+ */
 class VarManager
 {
+    /**
+     * Stores all variables.
+     *
+     * @var array
+     */
     protected $_vars = array();
 
+    /**
+     * Mapper for calls like setMyVariable() and getMyVariable() to $this->set() and $this->get().
+     *
+     * @param string $call The method-name called
+     * @param array $arguments The arguments passed
+     *
+     * @throws Exception Throws an exception if the called method-name does not start with "set" or "get".
+     *
+     * @return VarManager|mixed $this if mapped to $this->set(), $value if mapped to $this->get().
+     */
     public function __call($call, $arguments)
     {
         $methodName = substr($call, 0, 3);
@@ -22,6 +40,14 @@ class VarManager
         return call_user_func_array(array($this, $methodName), array_merge(array(substr($call, 3)), $arguments));
     }
 
+    /**
+     * Can be called in two ways: set($varName, $value) or set($varName, $key, $value).
+     *
+     * @param string $varName Under which name should $value be saved?
+     * @param mixed $value The value of the variable to be saved.
+     *
+     * @return VarManager $this
+     */
     public function set($varName, $value)
     {
         if (func_num_args() > 2) {
@@ -39,6 +65,13 @@ class VarManager
         return $this;
     }
 
+    /**
+     * Can be called in two ways: get($varName) or get($varName, $key).
+     *
+     * @param string $varName The name of the requested variable
+     *
+     * @return mixed The value of the requested variable
+     */
     public function get($varName)
     {
         $var = isset($this->_vars[$varName]) ? $this->_vars[$varName] : null;

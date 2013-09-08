@@ -8,6 +8,11 @@
  */
 namespace ZyberWare\Application;
 
+/**
+ * Nothing special here, just an Exception
+ *
+ * @see \Exception
+ */
 class Exception extends \Exception
 {
 }
