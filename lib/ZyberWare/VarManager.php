@@ -6,7 +6,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-namespace ZyberWare\Application;
+namespace ZyberWare;
 
 /**
  * VarManager provides an easy way to save variables with getter- and setter-methods.
