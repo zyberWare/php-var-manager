@@ -4,16 +4,19 @@ VarManager provides an easy way to save variables with getter- and setter-method
 
 Example
 -------
-    $vars = new \ZyberWare\VarManager();
-    $vars->setDay('Friday');
-    $vars->setConfig('main', $mainConfig);
-    $vars->setConfig('db', $dbConfig);
-    
-    var_dump(
-        $vars->getDay(),
-        $vars->getConfig('main'),
-        $vars->getConfig('db')
-    );
+
+```php
+$vars = new \ZyberWare\VarManager();
+$vars->setDay('Friday');
+$vars->setConfig('main', $mainConfig);
+$vars->setConfig('db', $dbConfig);
+
+var_dump(
+    $vars->getDay(),
+    $vars->getConfig('main'),
+    $vars->getConfig('db')
+);
+```
 
 License
 -------
