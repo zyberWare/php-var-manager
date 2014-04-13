@@ -2,7 +2,7 @@
     "name": "zyberware/var-manager",
     "description": "Provides an easy way to save variables with getter- and setter-methods.",
     "type": "library",
-    "homepage": "https://gitlab.zyberware.org/composer-zyberware/var-manager",
+    "homepage": "https://github.com/zyberWare/php-var-manager",
     "license": "MPL-2.0",
     "authors": [
         {
