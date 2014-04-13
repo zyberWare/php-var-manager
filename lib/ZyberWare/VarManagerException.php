@@ -13,6 +13,6 @@ namespace ZyberWare;
  *
  * @see \Exception
  */
-class Exception extends \Exception
+class VarManagerException extends \Exception
 {
 }

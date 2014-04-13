@@ -26,7 +26,7 @@ class VarManager
      * @param string $call The method-name called
      * @param array $arguments The arguments passed
      *
-     * @throws Exception Throws an exception if the called method-name does not start with "set" or "get".
+     * @throws VarManagerException Throws an exception if the called method-name does not start with "set" or "get".
      *
      * @return VarManager|mixed $this if mapped to $this->set(), $value if mapped to $this->get().
      */
@@ -34,7 +34,7 @@ class VarManager
     {
         $methodName = substr($call, 0, 3);
         if ($methodName !== 'set' && $methodName !== 'get' || strlen($call) <= 3) {
-            throw new Exception('Unknown method ' . $call . ' in ' . get_class($this));
+            throw new VarManagerException('Unknown method ' . $call . ' in ' . get_class($this));
         }
 
         return call_user_func_array(array($this, $methodName), array_merge(array(substr($call, 3)), $arguments));
